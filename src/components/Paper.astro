@@ -1,0 +1,18 @@
+---
+export interface Props {
+	title: string;
+    authors: string;
+    year: string;
+    url: string;
+    journal: string;
+}
+
+const { title, authors, url, year, journal, linkClass = "link-secondary" } = Astro.props;
+---
+
+<a class="text-decoration-none" class:list={linkClass} href={url}>
+    <span class="mt-3">
+        <span set:html={authors}/> ({year})
+        "{title}" {journal}
+    </span>
+</a>

@@ -1,0 +1,32 @@
+---
+const pages = [
+    ["/", "Home"],
+    ["erebus.nicholasconnors.space", "Erebus"]
+]
+
+const currentPage = Astro.url.pathname;
+---
+
+<style>
+  a {
+    text-decoration: none !important;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <div id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            {pages.map(([path, title]) => (
+            <li class="nav-item p-1 ps-2 pe-2">
+              {currentPage == path ? 
+                <b>{title}</b> :
+                <a class="link-dark" href={path}>{title}</a>
+              }
+
+            </li> 
+            ))}
+        </ul>
+      </div>
+    </div>
+  </nav>
